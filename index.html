@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aratrika Moitra — GTM Strategy & Revenue Operations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF8;
+    --solving-bg:#F3F4F2;
+    --ink:#1A1D23;
+    --burgundy:#7A3B3B;
+    --muted:#5F6167;
+    --label:#8B9199;
+    --hairline:#C4CDD2;
+    --highlight-tint:#F3F0EC;
+    --highlight-tint-secondary: rgba(243,240,236,0.6);
+    --dim-opacity:0.4;
+    --ease:200ms ease;
+    --content-width:700px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:var(--content-width);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  a{color:inherit;}
+
+  /* ---------- Focus visibility ---------- */
+  a:focus-visible,
+  button:focus-visible,
+  .tag[tabindex]:focus-visible{
+    outline:2px solid var(--burgundy);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:0.001ms !important; animation-duration:0.001ms !important;}
+  }
+
+  /* ---------- Eyebrow ---------- */
+  .eyebrow{
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--label);
+    font-weight:500;
+    margin:0 0 18px 0;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 0 72px 0;
+  }
+  .hero-name{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:700;
+    font-size:40px;
+    line-height:1.1;
+    margin:0 0 14px 0;
+    letter-spacing:-0.01em;
+  }
+  .hero-oneliner{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:15px;
+    font-weight:500;
+    color:var(--burgundy);
+    margin:0 0 24px 0;
+    letter-spacing:0.01em;
+  }
+  .hero-positioning{
+    font-size:17px;
+    line-height:1.65;
+    color:var(--muted);
+    max-width:560px;
+    margin:0 0 36px 0;
+  }
+  .cta-button{
+    display:inline-block;
+    font-size:14px;
+    font-weight:500;
+    color:var(--burgundy);
+    background:transparent;
+    border:1px solid var(--burgundy);
+    padding:12px 22px;
+    border-radius:2px;
+    text-decoration:none;
+    transition:background var(--ease), color var(--ease);
+  }
+  .cta-button:hover{
+    background:var(--burgundy);
+    color:#FAFAF8;
+  }
+
+  /* ---------- About ---------- */
+  .about{
+    padding:0 0 72px 0;
+  }
+  .about h2{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    font-size:20px;
+    margin:0 0 22px 0;
+  }
+  .about p{
+    font-size:15px;
+    line-height:1.75;
+    color:var(--muted);
+    margin:0 0 18px 0;
+  }
+  .about p:last-child{margin-bottom:0;}
+
+  /* ---------- Skills band ---------- */
+  .skills{
+    padding:0 0 72px 0;
+  }
+  .word-cloud{
+    font-size:14px;
+    font-weight:500;
+    line-height:2.1;
+  }
+  .tag{
+    color:var(--ink);
+    cursor:pointer;
+    background:none;
+    border:none;
+    font:inherit;
+    padding:2px 1px;
+    transition:color var(--ease);
+  }
+  .tag:hover, .tag.active{
+    color:var(--burgundy);
+  }
+  .tag.non-clickable{
+    color:var(--label);
+    cursor:default;
+  }
+  .tag.non-clickable:hover{
+    color:var(--label);
+  }
+  .tag-sep{
+    color:var(--label);
+    margin:0 8px;
+  }
+
+  /* ---------- Section shared (Highlights / Solving) ---------- */
+  .section-highlights{
+    padding-bottom:8px;
+  }
+  .row{
+    display:grid;
+    grid-template-columns:160px 1fr;
+    gap:24px;
+    padding:28px 0;
+    border-bottom:0.5px solid var(--hairline);
+    transition:background var(--ease), opacity var(--ease);
+    border-radius:2px;
+  }
+  .row:first-child{
+  }
+  .category-label{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:700;
+    font-size:15px;
+    line-height:1.4;
+    color:var(--ink);
+    transition:color var(--ease);
+  }
+  .row-content{}
+  .row-headline{
+    font-size:18px;
+    font-weight:500;
+    line-height:1.4;
+    margin:0 0 8px 0;
+  }
+  .row-stat{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:15px;
+    font-weight:500;
+    color:var(--burgundy);
+    margin:0 0 10px 0;
+  }
+  .row-desc{
+    font-size:14px;
+    line-height:1.7;
+    color:var(--muted);
+    margin:0;
+  }
+
+  .row.highlight-primary{
+    background:var(--highlight-tint);
+    padding-left:12px;
+    padding-right:12px;
+    margin:0 -12px;
+  }
+  .row.highlight-primary .category-label{
+    color:var(--burgundy);
+  }
+  .row.highlight-secondary{
+    background:var(--highlight-tint-secondary);
+    padding-left:12px;
+    padding-right:12px;
+    margin:0 -12px;
+  }
+  .row.highlight-secondary .category-label{
+    color:var(--burgundy);
+  }
+  .row.dim{
+    opacity:var(--dim-opacity);
+  }
+  .row.pulse{
+    animation:pulse 600ms ease;
+  }
+  @keyframes pulse{
+    0%{background:var(--highlight-tint);}
+    50%{background:#EAE3DA;}
+    100%{background:var(--highlight-tint);}
+  }
+
+  /* ---------- Solving section ---------- */
+  .solving{
+    background:var(--solving-bg);
+    padding:64px 0;
+    margin:0 calc(50% - 50vw);
+    padding-left:calc(50vw - 50%);
+    padding-right:calc(50vw - 50%);
+  }
+  .solving-inner{
+    max-width:var(--content-width);
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .solving-title{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:700;
+    font-size:20px;
+    margin:0 0 6px 0;
+  }
+  .solving-subtitle{
+    font-size:13px;
+    color:var(--label);
+    margin:0 0 12px 0;
+    font-style:italic;
+  }
+  .solving .row{
+    grid-template-columns:160px 1fr;
+    border-bottom:none;
+    border-top:0.5px solid var(--hairline);
+    padding:28px 0;
+  }
+  .solving-label-col{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .solving-icon{
+    color:var(--burgundy);
+    width:18px;
+    height:18px;
+  }
+  .solving-label{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:700;
+    font-size:14px;
+    line-height:1.35;
+  }
+  .solving-headline{
+    font-size:16px;
+    font-weight:500;
+    line-height:1.4;
+    margin:0 0 8px 0;
+  }
+  .solving-desc{
+    font-size:14px;
+    line-height:1.7;
+    color:var(--muted);
+    margin:0;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:56px 0 80px 0;
+    text-align:center;
+  }
+  footer p{
+    font-size:13px;
+    color:var(--label);
+    margin:0;
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width:640px){
+    .hero{padding:64px 0 48px 0;}
+    .hero-name{font-size:30px;}
+    .row, .solving .row{
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .solving-label-col{
+      flex-direction:row;
+      align-items:center;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero wrap" id="hero">
+    <h1 class="hero-name">Aratrika Moitra</h1>
+    <p class="hero-oneliner">GTM Strategy · Revenue Operations · Planning &amp; Forecasting</p>
+    <p class="hero-positioning">I work across sales, marketing, channel partners, finance, data strategy, and product to solve one problem from every angle: how a company gets more revenue in, and removes the operational friction that keeps it from moving efficiently once it's there.</p>
+    <a href="#highlights" class="cta-button">See my work →</a>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about wrap" id="about">
+    <h2>About</h2>
+    <p>I'm a GTM Strategy &amp; Operations leader with 8+ years of experience working across sales, marketing, channel partners, finance, data strategy, and product. My work sits in the connective tissue between those functions — building the operating systems that link them, rather than leaving each to solve revenue problems in isolation.</p>
+    <p>I built and led the Strategy &amp; Ops function at HighRadius from the ground up — 5 direct reports and 40 interns, scaling to a team of 18 analysts — before being recruited to Zscaler to build the company's first long-range plan, working as a specialist directly with senior stakeholders. I've since returned to people leadership with an expanded charter: managing my own portfolio while standing up data governance and global data stewardship at Zscaler for the first time. The work spans market prioritization, account strategy, long-range planning, AI product development, and the operating systems that make each of those repeatable rather than one-time.</p>
+    <p>I started in enterprise sales — carrying quota, running multi-stakeholder deal cycles, closing $3.1M+ in revenue. That's less a backstory than a working lens. It's what lets me evaluate an internal operations problem the way a seller would evaluate a deal: what's actually blocking movement, and what does the person on the other side need to see to act.</p>
+  </section>
+
+  <!-- ===================== SKILLS / WORD CLOUD ===================== -->
+  <section class="skills wrap" id="skills">
+    <p class="eyebrow">Skills</p>
+    <div class="word-cloud" id="wordCloud">
+      <!-- tags injected by JS to keep markup + interaction data in one place -->
+    </div>
+  </section>
+
+  <!-- ===================== HIGHLIGHTS ===================== -->
+  <section class="section-highlights wrap" id="highlights">
+    <p class="eyebrow">Highlights</p>
+
+    <div class="row" id="row-1">
+      <div class="category-label">Market Investment Strategy</div>
+      <div class="row-content">
+        <p class="row-headline">Identified the top markets driving nearly all of the business</p>
+        <p class="row-stat">20–35 markets → 99%+ of revenue</p>
+        <p class="row-desc">Broad market coverage was spreading resources thin, with no data-backed view of where revenue actually concentrated. Built a country-level prioritization framework scoring 119 markets on revenue concentration and growth potential — the harder challenge was convincing leadership to de-prioritize markets they'd historically funded. Now embedded in annual operating planning.</p>
+      </div>
+    </div>
+
+    <div class="row" id="row-2">
+      <div class="category-label">Account Strategy</div>
+      <div class="row-content">
+        <p class="row-headline">Built an account model that surfaced what standard segmentation was missing</p>
+        <p class="row-stat">$50–70M+ ARR · 150 accounts · sustained ~15% YoY</p>
+        <p class="row-desc">Standard segmentation showed where revenue had been, not where it was going, leaving large pockets of account potential invisible. Modeled ARR concentration, whitespace, lookalike potential, and growth velocity instead of current spend, surfacing accounts nobody was watching. The program has since expanded into its third year with a broader mandate including competitive displacement.</p>
+      </div>
+    </div>
+
+    <div class="row" id="row-3">
+      <div class="category-label">Market Turnaround</div>
+      <div class="row-content">
+        <p class="row-headline">Rebuilt a market that had missed quota for two years</p>
+        <p class="row-stat">60% pipeline growth · ~90% target attainment</p>
+        <p class="row-desc">A market had missed quota for two consecutive years, and leadership was operating on a pipeline picture that turned out to be wrong. Diagnosed the broken coverage model and rep profiling strategy, then rebuilt the GTM structure from the ground up, working directly with the CSO and CEO.</p>
+      </div>
+    </div>
+
+    <div class="row" id="row-4">
+      <div class="category-label">0-to-1 Function Build</div>
+      <div class="row-content">
+        <p class="row-headline">Built the Strategy and Ops function from scratch</p>
+        <p class="row-stat">36% ARR growth · 30% lead conversion lift · 20% faster deal velocity</p>
+        <p class="row-desc">There was no inherited process, team structure, or review cadence to build on. Co-built the StratOps function at HighRadius from scratch — starting with 5 direct reports and a 40-person intern cohort, converting the strongest performers into full-time hires, and scaling to a team of analysts, senior analysts, and dedicated managers. Built every planning, review, and operating cadence the function now runs on.</p>
+      </div>
+    </div>
+
+    <div class="row" id="row-5">
+      <div class="category-label">AI Product Leadership</div>
+      <div class="row-content">
+        <p class="row-headline">Led an AI sales platform from business case to 2,100 users</p>
+        <p class="row-stat">2,100 users · 60%+ weekly active within 6 weeks</p>
+        <p class="row-desc">Sellers were operating across fragmented tools with no single starting point for execution. Owned the 0-to-1 build end to end — business case, 15+ field research sessions, a 6-persona BRD, vendor evaluation, implementation, and rollout — for an AI-powered platform unifying seller workflows.</p>
+      </div>
+    </div>
+
+    <div class="row" id="row-6">
+      <div class="category-label">Long-Range Planning</div>
+      <div class="row-content">
+        <p class="row-headline">Built the company's long-range plan from scratch</p>
+        <p class="row-stat">Organisation's first long-range plan · connected TAM, whitespace, and milestone forecasting</p>
+        <p class="row-desc">Recruited as a specialist to define pathways to the company's next major revenue horizons, working directly with senior stakeholders from day one. Connected TAM sizing, whitespace analysis, and milestone forecasting into a single coherent planning model that now underpins how the business sets its long-term direction.</p>
+      </div>
+    </div>
+
+    <div class="row" id="row-7">
+      <div class="category-label">Forecasting Infrastructure</div>
+      <div class="row-content">
+        <p class="row-headline">Forecasted within 1% of Finance's number</p>
+        <p class="row-stat">~1% variance · ~$1B annual revenue plan</p>
+        <p class="row-desc">Static ramp assumptions and uniform productivity curves were producing forecasts that drifted further from reality every quarter. Replaced them with a tenure-based capacity model accounting for productivity curves, attrition, and hiring lag across a global, multi-geo org.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT I'M SOLVING RIGHT NOW ===================== -->
+  <section class="solving" id="solving">
+    <div class="solving-inner">
+      <h2 class="solving-title">What I'm Solving Right Now</h2>
+      <p class="solving-subtitle">Active, not yet resolved. These will move into Highlights once they are.</p>
+
+      <div class="row" id="solving-1">
+        <div class="solving-label-col">
+          <svg class="solving-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="12" cy="6" rx="7" ry="3"></ellipse>
+            <path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6"></path>
+            <path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"></path>
+          </svg>
+          <div class="solving-label">Data<br>Foundations</div>
+        </div>
+        <div class="row-content">
+          <p class="solving-headline">Building the data foundation GTM decisions actually need</p>
+          <p class="solving-desc">Every downstream GTM decision — account lists, territory design, segmentation, quota planning, even hiring — inherits whatever quality the underlying data has. Most organisations underestimate how much of that foundation has quietly drifted, and by the time it surfaces as a mis-sized quota or a bad territory, the root cause is hard to trace. Building the data governance function and a global data stewardship team to fix this at the source, not patch it downstream.</p>
+        </div>
+      </div>
+
+      <div class="row" id="solving-2">
+        <div class="solving-label-col">
+          <svg class="solving-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="13" r="8"></circle>
+            <circle cx="11" cy="13" r="3.2"></circle>
+            <path d="M17.5 6.5 21 3"></path>
+            <path d="M21 3h-4"></path>
+            <path d="M21 3v4"></path>
+          </svg>
+          <div class="solving-label">Pipeline<br>Generation</div>
+        </div>
+        <div class="row-content">
+          <p class="solving-headline">Finding revenue that isn't visible in the pipeline yet</p>
+          <p class="solving-desc">Cold accounts — no active opportunity, no recent touch, nothing to signal potential — are treated as dead weight in most coverage models. But "cold" and "no potential" aren't the same thing; most models just can't tell the difference. Building an ML-based propensity model, layered with ecosystem signals, to identify real cross-sell and upsell potential inside that cold-account population and convert it into generated pipeline.</p>
+        </div>
+      </div>
+
+      <div class="row" id="solving-3">
+        <div class="solving-label-col">
+          <svg class="solving-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5"></circle>
+            <path d="M3.5 12h17"></path>
+            <path d="M12 3.5c2.6 2.3 4 5.3 4 8.5s-1.4 6.2-4 8.5c-2.6-2.3-4-5.3-4-8.5s1.4-6.2 4-8.5Z"></path>
+          </svg>
+          <div class="solving-label">Country-Lens<br>Reviews</div>
+        </div>
+        <div class="row-content">
+          <p class="solving-headline">Business reviews that actually inform growth strategy</p>
+          <p class="solving-desc">Most business reviews aggregate performance at a global or regional level — exactly the altitude at which the signals that matter to M&amp;A and growth decisions disappear. A country performing well can mask a country performing badly, and vice versa. Building a business review structure with a country-level lens, granular enough that growth and M&amp;A strategy can be informed by what's actually happening on the ground, not a blended average.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <p>Aratrika Moitra — aratrika.me</p>
+  </footer>
+
+<script>
+(function(){
+
+  // Tag → destination mapping, straight from the nav spec.
+  var TAG_MAP = {
+    "GTM Strategy":            { primary:["row-1","row-3"], secondary:["row-2","row-6"] },
+    "Revenue Operations":      { primary:["row-4","row-7"], secondary:["row-2","row-3"] },
+    "Long-Range Planning":     { primary:["row-6"], secondary:[] },
+    "Market Prioritization":   { primary:["row-1"], secondary:["row-3"] },
+    "Account Strategy":        { primary:["row-2"], secondary:[] },
+    "Capacity Planning":       { primary:["row-7"], secondary:[] },
+    "Forecasting":             { primary:["row-7"], secondary:[] },
+    "Pipeline Generation":     { primary:["solving-2"], secondary:[] },
+    "Data Governance":         { primary:["solving-1"], secondary:[] },
+    "Data Stewardship":        { primary:["solving-1"], secondary:[] },
+    "AI Product Strategy":     { primary:["row-5"], secondary:[] },
+    "Business Reviews":        { primary:["solving-3"], secondary:[] },
+    "Team Leadership":         { primary:["row-4"], secondary:[] },
+    "Enterprise Sales":        null, // non-clickable
+    "0-to-1 Build":            { primary:["row-4","row-5"], secondary:["row-6"] },
+    "Operating System Design": { primary:["row-4","row-6","row-7"], secondary:[] }
+  };
+
+  var TAG_ORDER = [
+    "GTM Strategy","Revenue Operations","Long-Range Planning","Market Prioritization",
+    "Account Strategy","Capacity Planning","Forecasting","Pipeline Generation",
+    "Data Governance","Data Stewardship","AI Product Strategy","Business Reviews",
+    "Team Leadership","Enterprise Sales","0-to-1 Build","Operating System Design"
+  ];
+
+  var ALL_ROW_IDS = ["row-1","row-2","row-3","row-4","row-5","row-6","row-7","solving-1","solving-2","solving-3"];
+
+  // ---- Build the word cloud ----
+  var cloud = document.getElementById('wordCloud');
+  var activeTagEl = null;
+  var activeTagName = null;
+
+  TAG_ORDER.forEach(function(name, i){
+    var mapping = TAG_MAP[name];
+    var el;
+    if (mapping === null){
+      el = document.createElement('span');
+      el.className = 'tag non-clickable';
+      el.textContent = name;
+      el.setAttribute('title', 'See About');
+    } else {
+      el = document.createElement('button');
+      el.className = 'tag';
+      el.type = 'button';
+      el.textContent = name;
+      el.addEventListener('click', function(){ handleTagClick(name, el); });
+    }
+    cloud.appendChild(el);
+    if (i < TAG_ORDER.length - 1){
+      var sep = document.createElement('span');
+      sep.className = 'tag-sep';
+      sep.textContent = '·';
+      cloud.appendChild(sep);
+    }
+  });
+
+  function clearHighlights(){
+    ALL_ROW_IDS.forEach(function(id){
+      var row = document.getElementById(id);
+      if (!row) return;
+      row.classList.remove('highlight-primary','highlight-secondary','dim','pulse');
+    });
+  }
+
+  function handleTagClick(name, el){
+    var mapping = TAG_MAP[name];
+    if (!mapping) return;
+
+    // Clicking the already-active tag again clears everything.
+    if (activeTagName === name){
+      clearHighlights();
+      if (activeTagEl) activeTagEl.classList.remove('active');
+      activeTagEl = null;
+      activeTagName = null;
+      return;
+    }
+
+    clearHighlights();
+    if (activeTagEl) activeTagEl.classList.remove('active');
+
+    var isSingle = mapping.primary.length + mapping.secondary.length === 1;
+
+    ALL_ROW_IDS.forEach(function(id){
+      var row = document.getElementById(id);
+      if (!row) return;
+      if (mapping.primary.indexOf(id) !== -1){
+        row.classList.add('highlight-primary');
+        if (isSingle) row.classList.add('pulse');
+      } else if (mapping.secondary.indexOf(id) !== -1){
+        row.classList.add('highlight-secondary');
+      } else {
+        row.classList.add('dim');
+      }
+    });
+
+    el.classList.add('active');
+    activeTagEl = el;
+    activeTagName = name;
+
+    var firstTarget = document.getElementById(mapping.primary[0]);
+    if (firstTarget){
+      firstTarget.scrollIntoView({ behavior:'smooth', block:'center' });
+    }
+  }
+
+})();
+</script>
+
+</body>
+</html>
