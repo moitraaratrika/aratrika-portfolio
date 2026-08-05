@@ -320,6 +320,24 @@
     color:var(--label);
     margin:0;
   }
+  .footer-links{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    font-size:13px;
+    margin:0;
+  }
+  .footer-links a{
+    color:var(--label);
+    text-decoration:none;
+    transition:color var(--ease);
+  }
+  .footer-links a:hover{
+    color:var(--burgundy);
+  }
+  .footer-sep{
+    color:var(--hairline);
+  }
 
   /* ---------- Mobile ---------- */
   @media (max-width:640px){
@@ -355,7 +373,7 @@
         <p class="hero-positioning">I work across sales, marketing, channel partners, finance, data strategy, and product to solve one problem from every angle: how a company gets more revenue in, and removes the operational friction that keeps it from moving efficiently once it's there.</p>
         <a href="#highlights" class="cta-button">See my work →</a>
       </div>
-      <img class="hero-photo" src="moitra_aratrika_headshot_burgundy_duotone.jpg" alt="Portrait of Aratrika Moitra">
+      <img class="hero-photo" src="headshot.jpg" alt="Portrait of Aratrika Moitra">
     </div>
   </section>
 
@@ -499,7 +517,11 @@
   </section>
 
   <footer class="wrap">
-    <p>Aratrika Moitra — aratrika.me</p>
+    <p class="footer-links">
+      <a href="https://www.linkedin.com/in/aratrikamoitra/" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="footer-sep">·</span>
+      <a href="mailto:aratrika.moitra@gmail.com">aratrika.moitra@gmail.com</a>
+    </p>
   </footer>
 
 <script>
