@@ -394,7 +394,7 @@
         <p class="hero-positioning">I build planning systems, revenue frameworks and GTM AI products that scale enterprise sales organisations globally.</p>
         <div class="hero-actions">
           <a href="#highlights" class="cta-button">See my work →</a>
-          <span class="hero-links"><a href="https://www.linkedin.com/in/aratrikamoitra/" target="_blank" rel="noopener">Connect on LinkedIn</a><span class="footer-sep">·</span><a href="mailto:aratrika.moitra@gmail.com">Email me</a></span>
+          <span class="hero-links"><a href="https://www.linkedin.com/in/aratrikamoitra/" target="_blank" rel="noopener">Connect on LinkedIn</a><span class="footer-sep">·</span><a href="mailto:aratrika.moitra@gmail.com" id="emailLink">Email me</a></span>
         </div>
       </div>
       <img class="hero-photo" src="headshot.jpg" alt="Portrait of Aratrika Moitra">
@@ -717,6 +717,28 @@
     }
   }
 
+})();
+// "Email me": keep mailto for people with a mail app, and copy the address
+// for everyone else (webmail users get nothing from mailto alone).
+(function(){
+  var link=document.getElementById('emailLink');
+  if(!link) return;
+  var addr='aratrika.moitra@gmail.com', label=link.textContent, t;
+  function fallbackCopy(){
+    var ta=document.createElement('textarea');
+    ta.value=addr; ta.setAttribute('readonly',''); ta.style.position='absolute'; ta.style.left='-9999px';
+    document.body.appendChild(ta); ta.select();
+    try{document.execCommand('copy');}catch(e){}
+    document.body.removeChild(ta);
+  }
+  link.addEventListener('click',function(){
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(addr).catch(fallbackCopy);
+    } else { fallbackCopy(); }
+    link.textContent='Address copied';
+    clearTimeout(t);
+    t=setTimeout(function(){ link.textContent=label; },2200);
+  });
 })();
 </script>
 
