@@ -394,6 +394,11 @@
   .hero-links .footer-sep{color:var(--hairline);}
   .email-note{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--burgundy);opacity:0;transition:opacity var(--ease);margin-left:2px;}
   .email-note.show{opacity:1;}
+  /* Section rules like .hero{padding:96px 0 …} reset the side padding that
+     .wrap sets, which left text touching the screen edge on phones. */
+  .wrap{padding-left:24px;padding-right:24px;}
+  /* Keep each role phrase whole so a line never starts with a stray "·". */
+  .ol-item{white-space:nowrap;}
 </style>
 </head>
 <body>
@@ -403,7 +408,7 @@
     <div class="hero-grid">
       <div class="hero-text">
         <h1 class="hero-name">Aratrika Moitra</h1>
-        <p class="hero-oneliner">GTM Strategy &amp; Planning · Revenue Operations · AI-Powered Revenue Systems</p>
+        <p class="hero-oneliner"><span class="ol-item">GTM Strategy &amp; Planning<span class="ol-sep"> ·</span></span> <span class="ol-item">Revenue Operations<span class="ol-sep"> ·</span></span> <span class="ol-item">AI-Powered Revenue Systems</span></p>
         <p class="hero-positioning">I build planning systems, revenue frameworks and GTM AI products that scale enterprise sales organisations globally.</p>
         <div class="hero-actions">
           <div class="hero-buttons">
